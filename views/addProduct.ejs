@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/style/add.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+   <div class="container">
+    <header>
+       <div class="add">
+        <h1>Admin</h1>
+       </div>
+       <div class="menu">
+         <ul>
+            <li>
+                 <a href="">
+                    <span><i class="fa-solid fa-gauge icon"></i></span>
+                    <p>Dashboard</p>
+                 </a>
+            </li>
+            <li>
+                <a href="">
+                    <span>
+                        <i class="fa-solid fa-file-audio icon"></i>
+                    </span>
+                    <p>Report</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span>
+                        <i class="fa-solid fa-cart-shopping icon"></i>
+                    </span>
+                    <p>Product</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span>
+                        <i class="fa-solid fa-plus-minus icon"></i>
+                    </span>
+                    <p>Add</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span>
+                        <i class="fa-solid fa-users-viewfinder icon"></i>
+                    </span>
+                    <p>Account</p>
+                </a>
+            </li>
+            <li>
+               <a href="">
+                    <span>
+                        <i class="fa-solid fa-gear icon"></i>
+                    </span>
+                    <p>Setting</p>
+               </a>
+            </li>
+         </ul>
+       </div>
+       <div class="login">
+          <li><a href="">Admin(Login)</a></li>
+       </div>
+    </header>
+    <section>
+        <main>
+            <form action=""method="POST" action="/products/add">
+                <h1>Add Products</h1>
+                <div class="product">
+                    <div class="product-input">
+                        <div class="name">
+                            <label for="name">Name</label>
+                            <input type="text" name="name">
+                        </div>
+                        
+                        <div class="name">
+                            <label for="category">Category</label>
+                            <input type="text" name="category">
+                        </div>
+
+                        <div class="name">
+                            <label for="price">Price</label>
+                            <input type="text" class="price" name="price">
+                        </div>
+                        
+                        <div class="error">
+                            <span></span>
+                        </div>
+
+                        <div class="name">
+                            <label for="brand">Brand</label>
+                            <input type="text" name="brand">
+                        </div>
+                         
+                        <div class="name">
+                            <label for="items_left">Items Number</label>
+                            <input type="text" id="price" name="items_left">
+                        </div>
+
+                        <div class="name">
+                            <label for="gender">Gender/label</label>
+                            <input type="text" name="gender">
+                        </div>
+
+                        <div class="name">
+                            <label for="slug">Slug</label>
+                            <textarea name="slug" id="" cols="30" rows="10"></textarea>
+                        </div>
+
+                        <div class="name">
+                            <label for="is_in_inventory">Inventery</label>
+                            <div class="veri">
+                                <input type="checkbox" class="checkbox" name="is_in_inventory">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="telecharge">
+                      <div class="logo">
+                         <i class="fa-solid fa-users-viewfinder icons"></i>
+                      </div>
+                      <div class="tale">
+                         Add File
+                         <input type="file">
+                      </div>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button>Add Product</button>
+                </div>
+            </form>
+        </main>
+    </section>
+   </div>
+   <script src="http://localhost:3000/js/add.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+</body>
+</html>

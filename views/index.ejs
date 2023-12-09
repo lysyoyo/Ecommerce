@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/style/style.css">
+</head>
+<body>
+    <div class="container anim">
+        <nav>
+            <div class="img">
+               <h1>Melshops</h1>
+            </div>
+            <ul>
+                <li class="active">
+                    <a class="linkA" href="">Home</a>
+                </li>
+                <li>
+                    <a class="linkA" href="">Products</a>
+                </li>
+                <li>
+                    <a class="linkA" href="">Portofolio</a>
+                </li>
+                <li>
+                    <a class="linkA" href="">Communauter</a>
+                </li>
+            </ul>
+            <div class="connection">
+                <div class="login">
+                    <a style="text-decoration: none;" class='button'>Login</a>
+                </div>
+                <div class="register">
+                    <button>Register</button>
+                </div>
+            </div>
+        </nav>
+        <div class="recherche hideRecherche">
+            <div class="search">
+                <div class="input-recherche">
+                    <input type="text">
+                </div>
+                <div class="icon">
+                    <span>recherche</span>
+                </div>
+            </div>
+        </div>
+        <div class="contentText">
+           <div class="text">
+              <h2>Profiter de nos marques avec une rediction de 30% sur charche achat</h2>
+              <p>Achetez et soyez Livre sans frais de livraison 100% rapide dans la livraison</p>
+           </div>
+
+            <div class="input-hero">
+                <input type="text">
+                <span>Recherche</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product-container">
+        <% if (products.length) { %>
+            <% products.forEach((product, index) => { %>
+                <div class="product-item" id="product_<%= index %>">
+                    <a>
+                        <div class="content-img">
+                            <figure>
+                                <div class="image-produit">
+                                    <span>Offres membres</span>
+                                    <img class="imageProduct" src="<%= product.imageURL %>" alt="<%= product.name %>">
+                                </div>
+                                <figcaption>
+                                    <p><%= product.name %></p>
+                                    <h3><%= product.price %></h3>
+                                    <p class='livery'>livraison gratuite</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div>No product Found</div>
+        <% } %>
+    </div>
+
+    <script src="http://localhost:3000/js/main.js"></script>
+</body>
+</html>

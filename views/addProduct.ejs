@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="http://localhost:3000/style/add.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5500/style/add.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -65,28 +65,32 @@
          </ul>
        </div>
        <div class="login">
-          <li><a href="">Admin(Login)</a></li>
+          <ul> <!-- Changed from <li> to <ul> -->
+             <li><a href="">Admin(Login)</a></li>
+          </ul>
        </div>
     </header>
     <section>
         <main>
-            <form action=""method="POST" action="/products/add">
+            <form action="" method="POST" action="/add" enctype="multipart/form-data">
                 <h1>Add Products</h1>
                 <div class="product">
                     <div class="product-input">
                         <div class="name">
                             <label for="name">Name</label>
-                            <input type="text" name="name">
+                            <input required type="text" name="name">
                         </div>
                         
                         <div class="name">
                             <label for="category">Category</label>
-                            <input type="text" name="category">
+                            <input required type="text" name="category">
                         </div>
 
                         <div class="name">
-                            <label for="price">Price</label>
-                            <input type="text" class="price" name="price">
+                           <div>
+                               <label for="price">Price</label>
+                            <input required type="text" class="price" name="price">
+                           </div>
                         </div>
                         
                         <div class="error">
@@ -95,38 +99,69 @@
 
                         <div class="name">
                             <label for="brand">Brand</label>
-                            <input type="text" name="brand">
+                            <input required type="text" name="brand">
                         </div>
                          
                         <div class="name">
                             <label for="items_left">Items Number</label>
-                            <input type="text" id="price" name="items_left">
+                            <input required type="text" id="items_left" name="items_left">
                         </div>
 
                         <div class="name">
                             <label for="gender">Gender/label</label>
-                            <input type="text" name="gender">
+                            <input required type="text" name="gender">
                         </div>
 
                         <div class="name">
                             <label for="slug">Slug</label>
-                            <textarea name="slug" id="" cols="30" rows="10"></textarea>
+                            <textarea required name="slug" id="" cols="30" rows="10"></textarea>
                         </div>
 
                         <div class="name">
                             <label for="is_in_inventory">Inventery</label>
                             <div class="veri">
-                                <input type="checkbox" class="checkbox" name="is_in_inventory">
+                                <input required type="checkbox" class="checkbox" name="is_in_inventory">
                             </div>
                         </div>
                     </div>
-                    <div class="telecharge">
+                    <div class="telecharge" style="position: relative;">
+                      <div class="calculatrice">
+                        <div class="cal">
+                            <P>Calculatrice</P>
+                        </div>
+                        <div class="inc">
+                            <input type="text" class="cal" id="initial">
+                            <input type="text" class="cal" id="reduction">
+                        </div>
+                        <div class="result">
+                            <p>Résultat : <span id="result-value"></span></p>
+                        </div>
+                        <div class="btnC">Calcul reduduction</div>
+                      </div>
                       <div class="logo">
+                        <label for="image"></label>
+                         <input required class="fileU" type="file" hidden name="image">
                          <i class="fa-solid fa-users-viewfinder icons"></i>
                       </div>
-                      <div class="tale">
-                         Add File
-                         <input type="file">
+                      <div class="name">
+                        <label for="reduction" style="color: #fff; margin-bottom: 18px;">Reduction</label>
+                        <div class="name" style="display: flex; gap: 10px;">
+                            <label for="reduction"></label>
+                            <input placeholder="reduction" style="width: 30%;" required type="text" id="reduction" name="reduction">
+                            <label for="prix_initial"></label>
+                            <input placeholder="Prix initial" style="width: 70%;" type="text" id="prix_initial" name="prix_initial">
+                        </div>
+                      </div>
+                      <div class="detail">
+                         <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="42" width="42" viewBox="0 0 512 512"><path fill="#fff" d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9/18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+                         </div>
+                         <div class="progress">
+                            <span style="color: #000; position: relative; top: 10px;" class="affiche"></span>
+                            <span class="progress" style="color: #fff;">
+                                <p class="affiche" style="position: absolute; right: 0px; top: -19px;"></p>
+                            </span>
+                         </div>
                       </div>
                     </div>
                 </div>
@@ -137,7 +172,37 @@
         </main>
     </section>
    </div>
-   <script src="http://localhost:3000/js/add.js"></script>
+   <script src="http://localhost:5500/js/add.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+   <script>
+      function calculReduction(){
+            const initialInput = document.querySelector('#initial');
+            const reductionInput = document.querySelector('#reduction');
+            const btn = document.querySelector('.btnC');
+            const resultSpan = document.querySelector('#result-value');
+            
+            initialInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9.]/g, ''); 
+            });
+
+            reductionInput.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9.]/g, ''); 
+            });
+
+            btn.addEventListener('click', function(){
+                const initial = parseFloat(initialInput.value);
+                const reduction = parseFloat(reductionInput.value);
+
+                if (!isNaN(initial) && !isNaN(reduction)) {
+                    const nouveauPrix = initial * (1 - reduction / 100);
+                    resultSpan.textContent = nouveauPrix.toFixed(2);
+                } else {
+                    resultSpan.textContent = "Veuillez entrer des nombres valides.";
+                }
+            });
+        }
+
+        calculReduction();
+    </script>
 </body>
 </html>

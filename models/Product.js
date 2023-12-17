@@ -4,35 +4,36 @@ const path = require('path');
 const rootDir = require('../utils/path.js');
 const productPath = path.join(rootDir, 'data', 'products.json');
 
-exports.saveProduct = (product) => {
-    fs.readFile(productPath, 'utf8', (error, productData) => {
-        let products = [];
-
-        if (!error) {
-            products = JSON.parse(productData);
+const getProductFromFile = (callback) => {
+    fs.readFile(productPath, (error, productData) => {
+        if (error) {
+            return callback([]);
         }
 
-        products.push(product);
+        return callback(JSON.parse(productData));
+    });
+}
 
-        fs.writeFile(productPath, JSON.stringify(products), 'utf8', (error) => {
+exports.saveProduct = (product) => {
+    getProductFromFile((productData) => {
+        productData.push(product);
+        fs.writeFile(productPath, JSON.stringify(productData), (error) => {
             if (error) {
-                console.log(error);
+                console.log("Error:", error);
             }
         });
     });
 };
 
-exports.getAllProducts = () => {
-    try {
-        // Check if the file exists
-        fs.accessSync(productPath, fs.constants.F_OK);
+exports.getAllProducts = (callback) => {
+    getProductFromFile((products) => {
+        callback(products);
+    });
+};
 
-        const productData = fs.readFileSync(productPath, 'utf8');
-        return JSON.parse(productData);
-    } catch (error) {
-        // If the file doesn't exist, create an empty array
-        console.log(`File does not exist at ${productPath}. Creating a new file.`);
-        fs.writeFileSync(productPath, '[]', 'utf8');
-        return [];
-    }
+exports.getProductId = (productId, callback) => {
+    getProductFromFile((products) => {
+        const product = products.find(pd => pd.id && pd.id.toString() === productId);
+        callback(product);
+    });
 };

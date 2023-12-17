@@ -1,5 +1,5 @@
 const { saveProduct } = require("../../models/Product");
-
+const path = require('path');
 
 exports.getProductAdmin = (req, res) =>{
     const viewsData = {
@@ -11,6 +11,7 @@ exports.getProductAdmin = (req, res) =>{
 
 exports.postProductAdmin = (req, res) => {
     const product = {
+        id:Date.now(),
         title: req.body.title,
         name: req.body.name,
         price: req.body.price,
@@ -18,8 +19,10 @@ exports.postProductAdmin = (req, res) => {
         items_left: req.body.items_left,
         gender: req.body.gender,
         slug: req.body.slug,
+        reduction: req.body.reduction,
         is_in_inventory: req.body.is_in_inventory,
-        imageURL: req.body.imageURL,
+        prix_initial:req.body.prix_initial,
+        imageURL: req.file ? path.join('uploads', req.file.filename) : '', // Save the file path
     };
     saveProduct(product);
     res.redirect('/');

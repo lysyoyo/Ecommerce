@@ -4,8 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= pageTitle %></title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:5500/style/productId.css">
 </head>
 <body>
-   Hello
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <p>Bienvenue!</p>
+                <a href="">Connection</a>
+                <a href="#" style="text-decoration: none; color: black;">ou</a>
+                <a href="">Inscrivez-vous</a>
+            </div>
+            <div class="fn">
+                <a href="">Bon plans</a>
+                <a href="">Aide</a>
+            </div>
+        </div>
+        <div class="header" id="header">
+            <div class="menu">
+                <form action="">
+                    <div class="logo">
+                        <a href="">Melshop</a>
+                    </div>
+                    <div class="input">
+                       <div class="category">
+                           <div class="text">Chercher par gategory</div>
+                           <div class="icon"><i></i></div>
+                       </div>
+                       <div class="allProduct">
+                          <ul style="display: none;">ddd</ul>
+                       </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="icon"></div>
+                        <div class="input">
+                            <input type="text">
+                        </div>
+                        <div class="ttca">
+                            <ul>
+                                <div class="text">Tout Affiche</div>
+                                <div class="icon"><i></i></div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="btn">
+                        <a href="">Recherche</a>
+                    </div>
+
+                    <div class="shop">
+                        <div class="notify">
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path fill="#000" d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416H416c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z"/></svg>
+                            </a>
+                        </div>
+                        <div class="panier">
+                            <a href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path fill="#000" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="back">
+            <a href="/">Retour</a>
+        </div>
+        <div class="card">
+            <div class="img"style="height: 366.667px;">
+                <div class="pt1" style="display: none;"></div>
+                <div class="pt2">
+                    <div class="container">
+                        <img src="/<%= product.imageURL %>" alt="<%= product.name %>">
+                    </div>
+                </div>
+            </div>
+            <div class="desc">
+                <div class="information">
+                    <h1><%= product.name %></h1>
+                    <div class="ft" style="display: flex; gap: 12px;">
+                        <p>Etat: </p>
+                        <p>Bonne etat neuf avec embalage</p>
+                    </div>
+                    <div class="ft1" style="display: flex; gap: 12px;">
+                        <p>Temps de livraison:</p>
+                        <p>3-7 jours</p>
+                    </div>
+                    <div class="prix">
+                        <p>Description:</p>
+                        <p><%= product.slug %></p><br>
+                    </div>
+                    <div class="prix">
+                        <p>Prix: <%= product.price %> CFA</p>
+                    </div>
+                    <div class="number">
+                        <p>Quatite: </p>
+                    </div>
+                    <div class="qt">
+                        <div class="less">-</div>
+                        <div class="value">1</div>
+                        <div class="more">+</div>
+                    </div>
+                    <div class="numero" style="padding-top:12px ;padding-bottom: 12px;">
+                        <div class="text" style="padding-bottom: 12px;">Numero</div>
+                        <select name="" id="" style="width: 100px;height: 20px;border: 1px solid #290DA8;">
+                            <option value="45">45</option>
+                            <option value="44">44</option>
+                            <option value="43">43</option>
+                            <option value="42">42</option>
+                            <option value="41">41</option>
+                            <option value="40">40</option>
+                            <option value="39">39</option>
+                        </select>
+                    </div>
+                    <div class="order">
+                        <button>Commencer votre Commander</button>
+                        <div class="chat">
+                            <p>Envoyer Message</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payement">
+                        <p>Methode de payements</p>
+                        <div class="method">
+                            <div class="momo">
+                                <img src="/assets/MTN-Logo.svg" alt="">
+                            </div>
+                            <div class="visacard">
+                                <img src="/assets/visa-3-svgrepo-com.svg" alt="">
+                            </div>
+                            <div class="paypal">
+                              <img src="/assets/paypal-logo-svgrepo-com.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
